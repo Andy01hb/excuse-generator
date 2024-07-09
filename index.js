@@ -1,14 +1,14 @@
-const excuses = [
-    "A slow merchant threw my computer on the street",
-    "My dog ate my homework",
-    "I got stuck in traffic",
-    "My alarm didn't go off",
-    "There was a power outage"
-];
+document.getElementById('generate').addEventListener('click', generateExcuse);
 
-function getRandomExcuse() {
-    const randomIndex = Math.floor(Math.random() * excuses.length);
-    return excuses[randomIndex];
+function generateExcuse() {
+    const subjects = ["My dog", "My grandma", "The postman", "An alien"];
+    const actions = ["ate", "lost", "destroyed", "hid"];
+    const objects = ["my homework", "my keys", "the remote control", "my car"];
+
+    const subject = subjects[Math.floor(Math.random() * subjects.length)];
+    const action = actions[Math.floor(Math.random() * actions.length)];
+    const object = objects[Math.floor(Math.random() * objects.length)];
+
+    const excuse = `${subject} ${action} ${object}.`;
+    document.getElementById('excuse').innerText = excuse;
 }
-
-document.getElementById("excuse").innerText = getRandomExcuse();
